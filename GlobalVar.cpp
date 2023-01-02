@@ -45,3 +45,21 @@ Fl_Input* v1Input;
 Fl_Input* v2Input;
 Fl_Output* v1Output;
 Fl_Output* v2Output;
+//ohms law
+Fl_Input* P;
+Fl_Input* E;
+Fl_Input* R;
+Fl_Input* I;
+Fl_Output* PaR;
+Fl_Output* PaR1;
+Fl_Output* PaR2;
+Fl_Output* EaR;
+Fl_Output* EaR1;
+Fl_Output* EaR2;
+Fl_Output* RaR;
+Fl_Output* RaR1;
+Fl_Output* RaR2;
+Fl_Output* IaR;
+Fl_Output* IaR1;
+Fl_Output* IaR2;
+
