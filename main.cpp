@@ -40,26 +40,46 @@ int main(int argc, char *argv[]) {
       }
       }
       GasMath->end();
-
-     
-
-      // ADD THE "Bbb" TAB
-      //   Same details as above.
-      //
       Fl_Group *physics = new Fl_Group(10,65,800,800,"Physics");{
          Fl_Tabs* gastab = new Fl_Tabs(10, 35, 800, 800); {
            Fl_Group *Elastic = new Fl_Group(10,60,800,800,"Elastic colision");{
                 elasticUi();
                Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
                b1->callback(elasticmath); // Remove the arguments 
-	
-      }
+               }
       Elastic->end();
-    
-    }
+      }}
       
-      }
       physics->end();
+
+      Fl_Group *ohmslaw = new Fl_Group(10, 35, 800, 800, "Ohms Law"); {
+        Fl_Tabs* gastab =new Fl_Tabs(10, 35, 800, 800); {
+          Fl_Group *watt = new Fl_Group(10, 60, 800, 800, "Watts(P)"); {
+               WattUi();
+               Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+               b1->callback(watmath); // Remove the arguments 
+          }
+          watt->end();
+          Fl_Group *volt = new Fl_Group(10, 60, 800, 800, "Volts(E)");{
+              voltsUi();
+              Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+               b1->callback(elasticmath); // Remove the arguments 
+          }
+          volt->end();
+          Fl_Group *res = new Fl_Group(10, 60, 800, 800, "Resistance(R)");{
+               resistUi();
+               Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+               b1->callback(elasticmath); // Remove the arguments 
+          }
+          res->end();
+          Fl_Group *amp = new Fl_Group(10, 60, 800, 800, "Amp(I)");{
+               ampUi();
+               Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+               b1->callback(elasticmath); // Remove the arguments 
+          }
+          amp->end();
+        }
+      }
     tabs->end();
   }
   win->end();
