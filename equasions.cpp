@@ -12,7 +12,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include<cmath>
+#include <cmath>
 #include "GlobalVar.cpp"
 
 void boylawfunc() {
@@ -135,50 +135,56 @@ void elasticmath(Fl_Widget* widget, void* data) {
 }
 void WattUi() {
  // P = new Fl_Input(120, 100, 80, 50, "Watts(P)");
-  E = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
-  R = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
-  I = new Fl_Input(120, 250, 80, 50, "Ampacity(I)");  
+  E = new Fl_Input(120, 100, 80, 50, "Volts(E)");  
+  R = new Fl_Input(120, 150, 80, 50, "Resistance(R)");  
+  I = new Fl_Input(120, 200, 80, 50, "Ampacity(I)");  
 
   PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
-  PaR1 = new Fl_Output(350, 150, 80, 50, "Volts(E)");
-  PaR2 = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
+  PaR1 = new Fl_Output(350, 150, 80, 50, "Watts(P)");
+  PaR2 = new Fl_Output(350, 200, 80, 50, "Watts(P)");
   //IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
   
 }
 void voltsUi() {
-  P = new Fl_Input(120, 100, 80, 50, "Watts(P)");
+  P1 = new Fl_Input(120, 100, 80, 50, "Watts(P)");
   //  E = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
-  R = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
-  I = new Fl_Input(120, 250, 80, 50, "Ampacity(I)");  
+  R1 = new Fl_Input(120, 150, 80, 50, "Resistance(R)");  
+  I1 = new Fl_Input(120, 200, 80, 50, "Ampacity(I)");  
 
  // PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
-  EaR = new Fl_Output(350, 150, 80, 50, "Volts(E)");
+  EaR = new Fl_Output(350, 100, 80, 50, "Volts(E)");
+  EaR1 = new Fl_Output(350, 150, 80, 50, "Volts(E)");
+  EaR2 = new Fl_Output(350, 200, 80, 50, "Volts(E)");
  // RaR = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
  // IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
   
 }
 void resistUi() {
-  P = new Fl_Input(120, 100, 80, 50, "Watts(P)");
-  E = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
+  P2 = new Fl_Input(120, 100, 80, 50, "Watts(P)");
+  E2 = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
   // R = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
-  I = new Fl_Input(120, 250, 80, 50, "Ampacity(I)");  
+  I2 = new Fl_Input(120, 200, 80, 50, "Ampacity(I)");  
 
   // PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
   //  EaR = new Fl_Output(350, 150, 80, 50, "Volts(E)");
-  RaR = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
+  RaR = new Fl_Output(350, 100, 80, 50, "Resistance(R)");
+  RaR1 = new Fl_Output(350, 150, 80, 50, "Resistance(R)");
+  RaR2 = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
   // IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
   
 }
 void ampUi() {
-  P = new Fl_Input(120, 100, 80, 50, "Watts(P)");
-  E = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
-  R = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
+  P3 = new Fl_Input(120, 100, 80, 50, "Watts(P)");
+  E3 = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
+  R3 = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
    // I = new Fl_Input(120, 250, 80, 50, "Ampacity(I)");  
 
    // PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
    // EaR = new Fl_Output(350, 150, 80, 50, "Volts(E)");
    // RaR = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
-  IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
+  IaR = new Fl_Output(350, 100, 80, 50, "Ampacity(I)");
+  IaR1 = new Fl_Output(350, 150, 80, 50, "Ampacity(I)");
+  IaR2 = new Fl_Output(350, 200, 80, 50, "Ampacity(I)");
   
 }
 void watmath(Fl_Widget* widget, void* data) {
@@ -187,7 +193,8 @@ void watmath(Fl_Widget* widget, void* data) {
     double Ia = std::atof(I->value());
     double Rr = std::atof(R->value());
 
-    double PaRa = pow(Ev, 2) / Rr;
+    double a = pow(Ev, 2);
+    double PaRa = a / Rr;
     double PaR0a = Rr * pow(Ia, 2);
     double PaR1a = Ev * Ia;   
 
@@ -200,28 +207,84 @@ void watmath(Fl_Widget* widget, void* data) {
     std::ostringstream PaRac;
     PaRac << PaR1a;
     PaR2->value(PaRac.str().c_str());
-
-}
-void valmath(Fl_Widget* widget, void* data) {
-    double Pw = std::atof(P->value());
-    double Ev = std::atof(E->value());
-    double Ia = std::atof(I->value());
-    double Rr = std::atof(R->value());
-
     
 
 }
+void volmath(Fl_Widget* widget, void* data) {
+    double Pw = std::atof(P1->value());
+    //double Ev = std::atof(E1->value());
+    double Ia = std::atof(I1->value());
+    double Rr = std::atof(R1->value());
+
+    double EaRa =  Rr * Ia;   
+    double EaR1a =  Pw / Ia;
+    double EaR2a =  sqrt(Pw * Rr);
+
+    std::ostringstream ab;
+    ab << EaRa;
+    EaR->value(ab.str().c_str());  
+    std::ostringstream abc;
+    abc << EaR1a;
+    EaR1->value(abc.str().c_str());
+    std::ostringstream abd;
+    abd << EaR2a;
+    EaR2->value(abd.str().c_str());
+}
 void restmath(Fl_Widget* widget, void* data) {
-    double Pw = std::atof(P->value());
-    double Ev = std::atof(E->value());
-    double Ia = std::atof(I->value());
-    double Rr = std::atof(R->value());
+    double Pw = std::atof(P2->value());
+    double Ev = std::atof(E2->value());
+    double Ia = std::atof(I2->value());
+    //double Rr = std::atof(R2->value());
+    double RaRa = Ev / Ia;
+    double RaR1a = pow(Ev, 2) / Pw;
+    double RaR2a = Pw / pow(Ia, 2);
+
+    std::ostringstream ab;
+    ab << RaRa;
+    RaR->value(ab.str().c_str());  
+    std::ostringstream abc;
+    abc << RaR1a;
+    RaR1->value(abc.str().c_str());
+    std::ostringstream abd;
+    abd << RaR2a;
+    RaR2->value(abd.str().c_str());
 
 }
 void ampmath(Fl_Widget* widget, void* data) {
-    double Pw = std::atof(P->value());
-    double Ev = std::atof(E->value());
-    double Ia = std::atof(I->value());
-    double Rr = std::atof(R->value());
+    double Pw = std::atof(P3->value());
+    double Ev = std::atof(E3->value());
+    //double Ia = std::atof(I3->value());
+    double Rr = std::atof(R3->value());
 
+    double IaRa = sqrt(Pw / Rr);  
+    double IaR1a = Pw / Ev;
+    double IaR2a = Ev / Rr; 
+
+    std::ostringstream ab;
+    ab << IaRa;
+    IaR->value(ab.str().c_str());  
+    std::ostringstream abc;
+    abc << IaR1a;
+    IaR1->value(abc.str().c_str());
+    std::ostringstream abd;
+    abd << IaR2a;
+    IaR2->value(abd.str().c_str());   
+
+}
+
+void Reactanceui() {
+  frec = new Fl_Input(120, 100, 80, 50, "Frequency (Hz)");
+  Lh = new Fl_Input(120, 150, 80, 50, "Length in Henry");
+
+  ohms = new Fl_Output(350, 100, 80, 50, "ohms");
+}
+void reacmath(Fl_Widget* widget, void* data) {
+  double Fv = std::atof(frec->value()); 
+  double Hv = std::atof(Lh->value());
+  
+  double Oh = 6.28 * Fv * Hv;
+
+  std::ostringstream ab;
+  ab << Oh;
+  ohms->value(ab.str().c_str());
 }
