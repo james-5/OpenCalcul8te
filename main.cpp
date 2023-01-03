@@ -12,6 +12,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <cmath>
 #include "equasions.cpp"
 
 
@@ -63,21 +64,26 @@ int main(int argc, char *argv[]) {
           Fl_Group *volt = new Fl_Group(10, 60, 800, 800, "Volts(E)");{
               voltsUi();
               Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
-               b1->callback(elasticmath); // Remove the arguments 
+               b1->callback(volmath); // Remove the arguments 
           }
           volt->end();
           Fl_Group *res = new Fl_Group(10, 60, 800, 800, "Resistance(R)");{
                resistUi();
                Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
-               b1->callback(elasticmath); // Remove the arguments 
+               b1->callback(restmath); // Remove the arguments 
           }
           res->end();
           Fl_Group *amp = new Fl_Group(10, 60, 800, 800, "Amp(I)");{
                ampUi();
                Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
-               b1->callback(elasticmath); // Remove the arguments 
+               b1->callback(ampmath); // Remove the arguments 
           }
           amp->end();
+          Fl_Group *pereallel = new Fl_Group(10, 60, 800, 800, "Reactance"); {
+            Reactanceui();
+            Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+            b1->callback(reacmath); // Remove the arguments 
+          }
         }
       }
     tabs->end();
