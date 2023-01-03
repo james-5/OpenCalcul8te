@@ -46,6 +46,7 @@ Fl_Input* v2Input;
 Fl_Output* v1Output;
 Fl_Output* v2Output;
 //ohms law
+//wats
 Fl_Input* P;
 Fl_Input* E;
 Fl_Input* R;
@@ -53,13 +54,39 @@ Fl_Input* I;
 Fl_Output* PaR;
 Fl_Output* PaR1;
 Fl_Output* PaR2;
+//volts
+Fl_Input* P1;
+Fl_Input* E1;
+Fl_Input* R1;
+Fl_Input* I1;
 Fl_Output* EaR;
 Fl_Output* EaR1;
 Fl_Output* EaR2;
+//resistance
+Fl_Input* P2;
+Fl_Input* E2;
+Fl_Input* R2;
+Fl_Input* I2;
+
 Fl_Output* RaR;
 Fl_Output* RaR1;
 Fl_Output* RaR2;
+//amps
+Fl_Input* P3;
+Fl_Input* E3;
+Fl_Input* R3;
+Fl_Input* I3;
 Fl_Output* IaR;
 Fl_Output* IaR1;
 Fl_Output* IaR2;
+//reactance
+Fl_Input* twopi;
+Fl_Input* frec;
+Fl_Input* Lh;
+Fl_Output* ohms;
+
+
+
+
+
 
