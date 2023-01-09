@@ -1,3 +1,18 @@
+/*   Copyright 2022 james-5
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Tabs.H>
@@ -38,6 +53,12 @@ int main(int argc, char *argv[]) {
                b1->callback(idglf); // Remove the arguments 
              }
             idealGassLaw->end();
+            Fl_Group *differe = new Fl_Group(10, 60, 800, 800, "Diffencial"); {
+              VolumeDiffui();
+              Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+              b1->callback(VolumeDiffmath); // Remove the arguments 
+            }
+            differe->end();
       }
       }
       GasMath->end();
@@ -53,37 +74,48 @@ int main(int argc, char *argv[]) {
       
       physics->end();
 
-      Fl_Group *ohmslaw = new Fl_Group(10, 35, 800, 800, "Ohms Law"); {
+
+      Fl_Group *eletric = new Fl_Group(10, 35, 800, 800, "Eletrical"); {
         Fl_Tabs* gastab =new Fl_Tabs(10, 35, 800, 800); {
-          Fl_Group *watt = new Fl_Group(10, 60, 800, 800, "Watts(P)"); {
+          Fl_Group *ohmslaw = new Fl_Group(10, 60, 800, 800, "Ohms Law"); {
+            Fl_Tabs* oh = new Fl_Tabs(10, 60, 800, 800); {
+          Fl_Group *watt = new Fl_Group(10, 85, 800, 800, "Watts(P)"); {
                WattUi();
                Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
                b1->callback(watmath); // Remove the arguments 
           }
           watt->end();
-          Fl_Group *volt = new Fl_Group(10, 60, 800, 800, "Volts(E)");{
+          Fl_Group *volt = new Fl_Group(10, 85, 800, 800, "Volts(E)");{
               voltsUi();
               Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
                b1->callback(volmath); // Remove the arguments 
           }
           volt->end();
-          Fl_Group *res = new Fl_Group(10, 60, 800, 800, "Resistance(R)");{
+          Fl_Group *res = new Fl_Group(10, 85, 800, 800, "Resistance(R)");{
                resistUi();
                Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
                b1->callback(restmath); // Remove the arguments 
           }
           res->end();
-          Fl_Group *amp = new Fl_Group(10, 60, 800, 800, "Amp(I)");{
+          Fl_Group *amp = new Fl_Group(10, 85, 800, 800, "Amp(I)");{
                ampUi();
                Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
                b1->callback(ampmath); // Remove the arguments 
           }
           amp->end();
-          Fl_Group *pereallel = new Fl_Group(10, 60, 800, 800, "Reactance"); {
+          }
+          }
+          ohmslaw->end();
+          Fl_Group *react = new Fl_Group(10, 60, 800, 800, "Reactance"); {
             Reactanceui();
             Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
             b1->callback(reacmath); // Remove the arguments 
           }
+          react->end();
+          Fl_Group *mag = new Fl_Group(10, 60, 800, 800, "Magnetic Feald"); {
+            Reactanceui();
+            Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+            b1->callback(reacmath); // Remove the arguments
         }
       }
     tabs->end();
@@ -92,4 +124,5 @@ int main(int argc, char *argv[]) {
   win->show(argc, argv);
   return(Fl::run());
   }
+}
 }
