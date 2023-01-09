@@ -1,5 +1,21 @@
+/*   Copyright 2022 james-5
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
+#include <FL/Fl_Input_.H>
 #include <FL/Fl_Tabs.H>
 #include <FL/Fl_Group.H>
 #include <FL/Fl_Button.H>
@@ -287,4 +303,46 @@ void reacmath(Fl_Widget* widget, void* data) {
   std::ostringstream ab;
   ab << Oh;
   ohms->value(ab.str().c_str());
+}
+
+void VolumeDiffui() {
+  Cd_input = new Fl_Input(170, 100, 80,50, "discharge coificiant");
+  A_input = new Fl_Input(170, 150, 80, 50, "Plate area");
+  delta_P_input = new Fl_Input(170, 200, 80, 50, "delta p");
+  P_input = new Fl_Input(170, 250, 80, 50, "Pruesure");
+  T_input = new Fl_Input(170, 300, 80, 50, "Tempeture");
+  gravity = new Fl_Input(170, 350, 80, 50, "Gravity 9.81");
+  gCon = new Fl_Input(170, 450, 80, 50, "Gas Constant 8.314");
+  Z = new Fl_Input(170, 400, 80, 50, " Compressability Chart");
+  MW_input = new Fl_Input(170, 500, 80, 50, " molecular weight");
+  Q_output = new Fl_Output(350, 100, 80, 50, "Q"); 
+  rho_output = new Fl_Output(350, 150, 80,50, "");
+  dPc_output = new Fl_Output(350, 200, 80, 50, "");
+
+}
+void VolumeDiffmath(Fl_Widget* widget, void* data) {
+
+  double cd = std::atof(Cd_input->value());
+  double Ai = std::atof(A_input->value());
+  double Pi = std::atof(P_input->value());
+  double Ti = std::atof(T_input->value());
+  double MW = std::atof(MW_input->value());
+  double Gc = std::atof(gCon->value());
+  double G = std::atof(gravity->value());
+  double Zi = std::atof(Z->value());
+  double dPi = std::atof(delta_P_input->value());
+
+  double rho = Pi * MW / (Gc);
+  double dPc = dPi / Zi;
+  double  Q = cd * Ai * sqrt(2 * G * dPi / rho);
+
+  std::ostringstream ab;
+  ab << rho;
+  rho_output->value(ab.str().c_str());
+  std::ostringstream abc;
+  abc << dPc;
+  dPc_output->value(abc.str().c_str());
+  std::ostringstream abd;
+  abd << Q;
+  Q_output->value(abd.str().c_str());
 }
