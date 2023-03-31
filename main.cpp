@@ -10,7 +10,7 @@
 #include <string>
 #include <cmath>
 #include "ui_elaments.cpp"
-#include "MathUi.cpp"
+
 
 
 int main(int argc, char **argv) {
