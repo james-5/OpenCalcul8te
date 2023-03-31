@@ -1,8 +1,11 @@
 /*   Copyright 2022 james-5
+
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
+
        http://www.apache.org/licenses/LICENSE-2.0
+
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,20 +25,6 @@
 #include <string>
 #include <cmath>
 
-Fl_Group* gas;
-Fl_Group* elec;
-Fl_Group* home;
-Fl_Group* phy;
-Fl_Group* df;
-Fl_Group* bl;
-Fl_Group* idl;
-Fl_Group*ohl;
-Fl_Group*reac;
-Fl_Group*mf;
-Fl_Group*Wp;
-Fl_Group*Ve;
-Fl_Group*Rr;
-Fl_Group*Ai;
 
 
 void back(Fl_Widget* widget, void* data) {

@@ -1,8 +1,11 @@
 /*   Copyright 2022 james-5
+
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
+
        http://www.apache.org/licenses/LICENSE-2.0
+
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,6 +25,10 @@
 #include <string>
 #include <cmath>
 #include "equasions.cpp"
+
+
+
+
 
 
 
@@ -53,6 +60,10 @@ void boy(Fl_Widget* widget, void* data){
 void iddl(Fl_Widget* widget, void* data){
     gas->hide();
     idl->show();
+}
+void iissffrr(Fl_Widget* widget, void* data){
+    gas->hide();
+    IsFr->show();
 }
 void mmf(Fl_Widget* widget, void* data){
     elec->hide();
@@ -118,9 +129,11 @@ void ges(){
     Fl_Button *button6 = new Fl_Button(20, 40, 120, 80, "Boyels law");
     Fl_Button *button7 = new Fl_Button(140, 40, 120, 80, "Ideal Gas Law");
     Fl_Button *button8 = new Fl_Button(260, 40, 120, 80, "Diferential");
+    Fl_Button *button9 = new Fl_Button(380, 40, 120, 80, "Isentropic\nFlow\nRelation");
     Fl_Button *bkb = new Fl_Button(20, 700, 120, 20, "Back");
     bkb->callback(back, gas);
     button6->callback(boy);  
     button7->callback(iddl);
     button8->callback(diff);
+    button9->callback(iissffrr);
 }
