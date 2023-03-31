@@ -26,6 +26,7 @@
 #include <FL/Fl_Output.H>
 #include <cstdlib>
 #include <iostream>
+#include <math.h>
 #include <sstream>
 #include <string>
 #include <cmath>
@@ -285,6 +286,38 @@ void VolumeDiffmath(Fl_Widget* widget, void* data) {
   std::ostringstream abd;
   abd << Q;
   Q_output->value(abd.str().c_str());
+}
+void IsentropicFlowMath(Fl_Widget* widget, void* data) {
+  double Ppo = std::atof(Pp0->value());
+  double Ppi= std::atof(Pp1->value());
+  double Yy= std::atof(Y->value());
+  
+  double Ppra = Ppo / Ppi;
+  double Ppv = pow(Ppra, (Yy-1)/(2*Yy));
+  double Ppv0 = sqrt((2*Yy)/(Yy-1));
+  double Macha = Ppv0 * sqrt(Ppv -1);
+
+  std::ostringstream ab;
+  ab << Ppra;
+  Ppr->value(ab.str().c_str());  
+  std::ostringstream abc;
+  abc << Macha;
+  Mach->value(abc.str().c_str());
+}
+void IsentropicFlowUi() {
+  Pp0 = new Fl_Input(120, 150, 80, 50, "Watts(P)");
+  Pp1 = new Fl_Input(120, 200, 80, 50, "Volts(E)"); 
+  Y = new Fl_Input(120, 200, 80, 50, "Volts(E)"); 
+
+  Ppr = new Fl_Output(350, 150, 80, 50, "Ampacity(I)");
+  Mach = new Fl_Output(350, 200, 80, 50, "Ampacity(I)");
+
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(IsentropicFlowMath);
+
+   
+
+
 }
 void VolumeDiffui() {
   Cd_input = new Fl_Input(170, 100, 80,50, "discharge coificiant");
