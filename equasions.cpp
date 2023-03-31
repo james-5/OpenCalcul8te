@@ -30,23 +30,16 @@
 #include <string>
 #include <cmath>
 #include "GlobalVar.cpp"
+#include "backbuttons.cpp"
 
-void boylawfunc() {
-        Pv1 = new Fl_Input(120, 100, 80, 50, "Pressure one:");
-        Pv2 = new Fl_Input(120, 150, 80, 50, "Pressure two:");
-        Vi1 = new Fl_Input(120, 200, 80, 50, "Volume one:");
-        vi2 = new Fl_Input(120, 250, 80, 50, "Volume two:");
 
-        P1aR = new Fl_Output(300, 100, 80, 50, "Pressure one:");
-        P2aR = new Fl_Output(300, 150, 80, 50, "Pressure two:");
-        V1aR = new Fl_Output(300, 200, 80, 50, "Volume one:");
-        V2aR = new Fl_Output(300, 250, 80, 50, "Volume two:");
-}
 void ab(Fl_Widget* widget, void* data) {
   double P1 = std::atof(Pv1->value());
   double P2 = std::atof(Pv2->value());
   double V1 = std::atof(Vi1->value());
   double V2 = std::atof(vi2->value());
+
+  
 
   // Calculate the result using the Boyles Law equation
   double P1a = P2 * (V2 / V1);
@@ -68,22 +61,19 @@ void ab(Fl_Widget* widget, void* data) {
   V2as << V2a;
   V2aR->value(V2as.str().c_str());
 }
-void IdealGassLawFunc() {
+void boylawfunc() {
+        Pv1 = new Fl_Input(120, 100, 80, 50, "Pressure one:");
+        Pv2 = new Fl_Input(120, 150, 80, 50, "Pressure two:");
+        Vi1 = new Fl_Input(120, 200, 80, 50, "Volume one:");
+        vi2 = new Fl_Input(120, 250, 80, 50, "Volume two:");
 
-    idgP1 = new Fl_Input(120, 100, 80, 50,   "Pressuer one");
-    idgP2 = new Fl_Input(120, 150, 80, 50, "Pressuer two");
-    idgT1 = new Fl_Input(120, 200, 80, 50, "Temp one");
-    idgT2 = new Fl_Input(120, 250, 80, 50, "Temp two");
-    idgV1 = new Fl_Input(120, 300, 80, 50, "Volume one");
-    idgV2 = new Fl_Input(120, 350, 80, 50, "Volume two");
-    Gc = new Fl_Input(680, 100 , 80, 50,"Gas Constent just put 8.314");
-    m = new Fl_Input(680, 150 , 80, 50,"moles if you dont know just put 1");    
-    idgaRP1 = new Fl_Output(300, 100, 80, 50,  "Pressure one");
-    idgaRP2 = new Fl_Output(300, 150, 80, 50,  "Pressure two");
-    idgaRT1 = new Fl_Output(300, 200, 80, 50,  "Temp One");
-    idgaRT2 = new Fl_Output(300, 250, 80, 50 , "Temp Two");
-    idgaRV1 = new Fl_Output(300, 300, 80, 50 , "Volume one");
-    idgaRV2 = new Fl_Output(300, 350, 80, 50 , "Volume Two");
+        P1aR = new Fl_Output(300, 100, 80, 50, "Pressure one:");
+        P2aR = new Fl_Output(300, 150, 80, 50, "Pressure two:");
+        V1aR = new Fl_Output(300, 200, 80, 50, "Volume one:");
+        V2aR = new Fl_Output(300, 250, 80, 50, "Volume two:");
+       
+        Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+          b1->callback(ab);
 }
 void idglf(Fl_Widget* widget, void* data) {
     double P1 = std::atof(idgP1->value());
@@ -121,15 +111,25 @@ void idglf(Fl_Widget* widget, void* data) {
     T2as << T2a;
     idgaRT2->value(V2as.str().c_str());
 }
-void elasticUi() {
-  m1Input = new Fl_Input(120, 100, 80,  50,"Mass 1 (kg):");
-  m2Input = new Fl_Input(120, 150, 80,  50,"Mass 2 (kg):");
-  v1Input = new Fl_Input(120, 200, 80, 50, "Velocity 1 (m/s):");
-  v2Input = new Fl_Input(120, 250, 80, 50, "Velocity 2 (m/s):");
+void IdealGassLawFunc() {
 
-  // Create the output widgets
-  v1Output = new Fl_Output(350, 100, 80, 50, "Velocity 1 (m/s):");
-  v2Output = new Fl_Output(350, 150, 80, 50, "Velocity 2 (m/s):");
+    idgP1 = new Fl_Input(120, 100, 80, 50,   "Pressuer one");
+    idgP2 = new Fl_Input(120, 150, 80, 50, "Pressuer two");
+    idgT1 = new Fl_Input(120, 200, 80, 50, "Temp one");
+    idgT2 = new Fl_Input(120, 250, 80, 50, "Temp two");
+    idgV1 = new Fl_Input(120, 300, 80, 50, "Volume one");
+    idgV2 = new Fl_Input(120, 350, 80, 50, "Volume two");
+    Gc = new Fl_Input(680, 100 , 80, 50,"Gas Constent just put 8.314");
+    m = new Fl_Input(680, 150 , 80, 50,"moles if you dont know just put 1");    
+    idgaRP1 = new Fl_Output(300, 100, 80, 50,  "Pressure one");
+    idgaRP2 = new Fl_Output(300, 150, 80, 50,  "Pressure two");
+    idgaRT1 = new Fl_Output(300, 200, 80, 50,  "Temp One");
+    idgaRT2 = new Fl_Output(300, 250, 80, 50 , "Temp Two");
+    idgaRV1 = new Fl_Output(300, 300, 80, 50 , "Volume one");
+    idgaRV2 = new Fl_Output(300, 350, 80, 50 , "Volume Two");
+
+    Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+      b1->callback(idglf); 
 }
 void elasticmath(Fl_Widget* widget, void* data) {
   
@@ -149,59 +149,17 @@ void elasticmath(Fl_Widget* widget, void* data) {
     v2Newa << v2New;
     v2Output->value(v2Newa.str().c_str());
 }
-void WattUi() {
- // P = new Fl_Input(120, 100, 80, 50, "Watts(P)");
-  E = new Fl_Input(120, 100, 80, 50, "Volts(E)");  
-  R = new Fl_Input(120, 150, 80, 50, "Resistance(R)");  
-  I = new Fl_Input(120, 200, 80, 50, "Ampacity(I)");  
+void elasticUi() {
+  m1Input = new Fl_Input(120, 100, 80,  50,"Mass 1 (kg):");
+  m2Input = new Fl_Input(120, 150, 80,  50,"Mass 2 (kg):");
+  v1Input = new Fl_Input(120, 200, 80, 50, "Velocity 1 (m/s):");
+  v2Input = new Fl_Input(120, 250, 80, 50, "Velocity 2 (m/s):");
 
-  PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
-  PaR1 = new Fl_Output(350, 150, 80, 50, "Watts(P)");
-  PaR2 = new Fl_Output(350, 200, 80, 50, "Watts(P)");
-  //IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
-  
-}
-void voltsUi() {
-  P1 = new Fl_Input(120, 100, 80, 50, "Watts(P)");
-  //  E = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
-  R1 = new Fl_Input(120, 150, 80, 50, "Resistance(R)");  
-  I1 = new Fl_Input(120, 200, 80, 50, "Ampacity(I)");  
-
- // PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
-  EaR = new Fl_Output(350, 100, 80, 50, "Volts(E)");
-  EaR1 = new Fl_Output(350, 150, 80, 50, "Volts(E)");
-  EaR2 = new Fl_Output(350, 200, 80, 50, "Volts(E)");
- // RaR = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
- // IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
-  
-}
-void resistUi() {
-  P2 = new Fl_Input(120, 100, 80, 50, "Watts(P)");
-  E2 = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
-  // R = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
-  I2 = new Fl_Input(120, 200, 80, 50, "Ampacity(I)");  
-
-  // PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
-  //  EaR = new Fl_Output(350, 150, 80, 50, "Volts(E)");
-  RaR = new Fl_Output(350, 100, 80, 50, "Resistance(R)");
-  RaR1 = new Fl_Output(350, 150, 80, 50, "Resistance(R)");
-  RaR2 = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
-  // IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
-  
-}
-void ampUi() {
-  P3 = new Fl_Input(120, 100, 80, 50, "Watts(P)");
-  E3 = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
-  R3 = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
-   // I = new Fl_Input(120, 250, 80, 50, "Ampacity(I)");  
-
-   // PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
-   // EaR = new Fl_Output(350, 150, 80, 50, "Volts(E)");
-   // RaR = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
-  IaR = new Fl_Output(350, 100, 80, 50, "Ampacity(I)");
-  IaR1 = new Fl_Output(350, 150, 80, 50, "Ampacity(I)");
-  IaR2 = new Fl_Output(350, 200, 80, 50, "Ampacity(I)");
-  
+  // Create the output widgets
+  v1Output = new Fl_Output(350, 100, 80, 50, "Velocity 1 (m/s):");
+  v2Output = new Fl_Output(350, 150, 80, 50, "Velocity 2 (m/s):");
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(elasticmath);
 }
 void watmath(Fl_Widget* widget, void* data) {
    // double Pw = std::atof(P->value());
@@ -224,7 +182,6 @@ void watmath(Fl_Widget* widget, void* data) {
     PaRac << PaR1a;
     PaR2->value(PaRac.str().c_str());
     
-
 }
 void volmath(Fl_Widget* widget, void* data) {
     double Pw = std::atof(P1->value());
@@ -287,41 +244,24 @@ void ampmath(Fl_Widget* widget, void* data) {
     IaR2->value(abd.str().c_str());   
 
 }
-
-void Reactanceui() {
-  frec = new Fl_Input(120, 100, 80, 50, "Frequency (Hz)");
-  Lh = new Fl_Input(120, 150, 80, 50, "Length in Henry");
-
-  ohms = new Fl_Output(350, 100, 80, 50, "ohms");
-}
 void reacmath(Fl_Widget* widget, void* data) {
   double Fv = std::atof(frec->value()); 
   double Hv = std::atof(Lh->value());
   
   double Oh = 6.28 * Fv * Hv;
-
   std::ostringstream ab;
   ab << Oh;
   ohms->value(ab.str().c_str());
 }
+void Reactanceui() {
+  frec = new Fl_Input(120, 100, 80, 50, "Frequency (Hz)");
+  Lh = new Fl_Input(120, 150, 80, 50, "Length in Henry");
 
-void VolumeDiffui() {
-  Cd_input = new Fl_Input(170, 100, 80,50, "discharge coificiant");
-  A_input = new Fl_Input(170, 150, 80, 50, "Plate area");
-  delta_P_input = new Fl_Input(170, 200, 80, 50, "delta p");
-  P_input = new Fl_Input(170, 250, 80, 50, "Pruesure");
-  T_input = new Fl_Input(170, 300, 80, 50, "Tempeture");
-  gravity = new Fl_Input(170, 350, 80, 50, "Gravity 9.81");
-  gCon = new Fl_Input(170, 450, 80, 50, "Gas Constant 8.314");
-  Z = new Fl_Input(170, 400, 80, 50, " Compressability Chart");
-  MW_input = new Fl_Input(170, 500, 80, 50, " molecular weight");
-  Q_output = new Fl_Output(350, 100, 80, 50, "Q"); 
-  rho_output = new Fl_Output(350, 150, 80,50, "");
-  dPc_output = new Fl_Output(350, 200, 80, 50, "");
-
+  ohms = new Fl_Output(350, 100, 80, 50, "ohms");
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(reacmath);
 }
 void VolumeDiffmath(Fl_Widget* widget, void* data) {
-
   double cd = std::atof(Cd_input->value());
   double Ai = std::atof(A_input->value());
   double Pi = std::atof(P_input->value());
@@ -345,4 +285,81 @@ void VolumeDiffmath(Fl_Widget* widget, void* data) {
   std::ostringstream abd;
   abd << Q;
   Q_output->value(abd.str().c_str());
+}
+void VolumeDiffui() {
+  Cd_input = new Fl_Input(170, 100, 80,50, "discharge coificiant");
+  A_input = new Fl_Input(170, 150, 80, 50, "Plate area");
+  delta_P_input = new Fl_Input(170, 200, 80, 50, "delta p");
+  P_input = new Fl_Input(170, 250, 80, 50, "Pruesure");
+  T_input = new Fl_Input(170, 300, 80, 50, "Tempeture");
+  gravity = new Fl_Input(170, 350, 80, 50, "Gravity 9.81");
+  gCon = new Fl_Input(170, 450, 80, 50, "Gas Constant 8.314");
+  Z = new Fl_Input(170, 400, 80, 50, " Compressability Chart");
+  MW_input = new Fl_Input(170, 500, 80, 50, " molecular weight");
+  Q_output = new Fl_Output(350, 100, 80, 50, "Q"); 
+  rho_output = new Fl_Output(350, 150, 80,50, "Rho");
+  dPc_output = new Fl_Output(350, 200, 80, 50, "DPC");
+
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+    b1->callback(VolumeDiffmath); // Remove the arguments 
+}
+void WattUi() {
+ // P = new Fl_Input(120, 100, 80, 50, "Watts(P)");
+  E = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
+  R = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
+  I = new Fl_Input(120, 250, 80, 50, "Ampacity(I)");  
+
+  PaR = new Fl_Output(350, 150, 80, 50, "Watts(P)");
+  PaR1 = new Fl_Output(350, 200, 80, 50, "Watts(P)");
+  PaR2 = new Fl_Output(350, 250, 80, 50, "Watts(P)");
+  //IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(watmath);
+}
+void voltsUi() {
+  P1 = new Fl_Input(120, 150, 80, 50, "Watts(P)");
+  //  E = new Fl_Input(120, 150, 80, 50, "Volts(E)");  
+  R1 = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
+  I1 = new Fl_Input(120, 250, 80, 50, "Ampacity(I)");  
+
+ // PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
+  EaR = new Fl_Output(350, 150, 80, 50, "Volts(E)");
+  EaR1 = new Fl_Output(350, 200, 80, 50, "Volts(E)");
+  EaR2 = new Fl_Output(350, 250, 80, 50, "Volts(E)");
+ // RaR = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
+ // IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(volmath);
+}
+void resistUi() {
+  P2 = new Fl_Input(120, 150, 80, 50, "Watts(P)");
+  E2 = new Fl_Input(120, 200, 80, 50, "Volts(E)");  
+  // R = new Fl_Input(120, 200, 80, 50, "Resistance(R)");  
+  I2 = new Fl_Input(120, 250, 80, 50, "Ampacity(I)");  
+
+  // PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
+  //  EaR = new Fl_Output(350, 150, 80, 50, "Volts(E)");
+  RaR = new Fl_Output(350, 150, 80, 50, "Resistance(R)");
+  RaR1 = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
+  RaR2 = new Fl_Output(350, 250, 80, 50, "Resistance(R)");
+  // IaR = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(restmath);
+}
+void ampUi() {
+  P3 = new Fl_Input(120, 150, 80, 50, "Watts(P)");
+  E3 = new Fl_Input(120, 200, 80, 50, "Volts(E)");  
+  R3 = new Fl_Input(120, 250, 80, 50, "Resistance(R)");  
+   // I = new Fl_Input(120, 250, 80, 50, "Ampacity(I)");  
+
+   // PaR = new Fl_Output(350, 100, 80, 50, "Watts(P)");
+   // EaR = new Fl_Output(350, 150, 80, 50, "Volts(E)");
+   // RaR = new Fl_Output(350, 200, 80, 50, "Resistance(R)");
+  IaR = new Fl_Output(350, 150, 80, 50, "Ampacity(I)");
+  IaR1 = new Fl_Output(350, 200, 80, 50, "Ampacity(I)");
+  IaR2 = new Fl_Output(350, 250, 80, 50, "Ampacity(I)");
+   
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(ampmath);
+  
 }
