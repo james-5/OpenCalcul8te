@@ -27,6 +27,26 @@
 #include <sstream>
 #include <string>
 
+
+
+//FL_Group names
+Fl_Group* gas;
+Fl_Group* elec;
+Fl_Group* home;
+Fl_Group* phy;
+Fl_Group* df;
+Fl_Group* bl;
+Fl_Group* idl;
+Fl_Group*ohl;
+Fl_Group*reac;
+Fl_Group*mf;
+Fl_Group*Wp;
+Fl_Group*Ve;
+Fl_Group*Rr;
+Fl_Group*Ai;
+Fl_Group*IsFr;
+
+
 //Boyels law
 Fl_Input* Pv1;
 Fl_Input* Pv2;
@@ -111,6 +131,10 @@ Fl_Input* gCon;
 Fl_Output* Q_output; 
 Fl_Output* rho_output;
 Fl_Output* dPc_output;
+//Isentropic Flow Relation
+Fl_Input *mach_input, *temperature_input, *pressure_input, *gamma_input, *gas_constant;
+Fl_Output *velocity_output, *density_output;
+
 
 
 
