@@ -1,15 +1,3 @@
-/*   Copyright 2022 james-5
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-       http://www.apache.org/licenses/LICENSE-2.0
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/
-
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Tabs.H>
@@ -22,6 +10,7 @@
 #include <string>
 #include <cmath>
 #include "ui_elaments.cpp"
+#include "MathUi.cpp"
 
 
 int main(int argc, char **argv) {
@@ -77,7 +66,7 @@ int main(int argc, char **argv) {
         bkb5->callback(eb, mf);
         mf->end();
         mf->hide();
-   Wp = new Fl_Group(10, 60, 800, 800);
+    Wp = new Fl_Group(10, 60, 800, 800);
         WattUi();
         Fl_Button *bkb6 = new Fl_Button(20, 700, 120, 20, "Back");
         bkb6->callback(ohb, Wp);
@@ -101,6 +90,12 @@ int main(int argc, char **argv) {
         bkb9->callback(ohb, Ai);
         Ai->end();
         Ai->hide();       
+    IsFr = new Fl_Group(10, 60, 800, 800);
+        IsentropicFlowUi();
+        Fl_Button *bkb10 = new Fl_Button(20, 700, 120, 20, "Back");
+        bkb10->callback(gb, IsFr);
+        IsFr->end();
+        IsFr->hide();       
     // Show window
     window->end();
     window->show(argc, argv);
