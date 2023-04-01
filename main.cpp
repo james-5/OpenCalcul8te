@@ -9,7 +9,10 @@
 #include <sstream>
 #include <string>
 #include <cmath>
+#include <gif_lib.h>
 #include "ui_elaments.cpp"
+#include <FL/Fl_PNG_Image.H>
+
 
 
 
@@ -37,14 +40,14 @@ int main(int argc, char **argv) {
         df->hide();
     bl = new Fl_Group(10, 60, 800, 800);
         boylawfunc();
-        Fl_Button *bkb1 = new Fl_Button(20, 700, 120, 20, "Back");
-            bkb1->callback(gb, bl);
+         Fl_Button *bkb1 = new Fl_Button(20, 700, 120, 20, "Back");
+        bkb1->callback(gb, bl);
         bl->end();
         bl->hide();
     idl = new Fl_Group(10, 60, 800, 800);
         IdealGassLawFunc();
         Fl_Button *bkb2 = new Fl_Button(20, 700, 120, 20, "Back");
-            bkb2->callback(gb, idl);
+        bkb2->callback(gb, idl);
         idl->end();
         idl->hide();
     ohl = new Fl_Group(10, 60, 800, 800);
@@ -53,14 +56,12 @@ int main(int argc, char **argv) {
         bkb3->callback(eb, ohl);
         ohl->end();
         ohl->hide();
-    
     reac = new Fl_Group(10, 60, 800, 800);
         Reactanceui();
         Fl_Button *bkb4 = new Fl_Button(20, 700, 120, 20, "Back");
         bkb4->callback(eb, reac);
         reac->end();
         reac->hide();
-
     mf = new Fl_Group(10, 60, 800, 800);
         Fl_Button *bkb5 = new Fl_Button(20, 700, 120, 20, "Back");
         bkb5->callback(eb, mf);
@@ -96,9 +97,19 @@ int main(int argc, char **argv) {
         bkb10->callback(gb, IsFr);
         IsFr->end();
         IsFr->hide();       
-    // Show window
-    window->end();
-    window->show(argc, argv);
+    phy = new Fl_Group(10, 60, 800, 800);
+        phiy();
+        phy->end();
+        phy->hide();       
+    eleas = new Fl_Group(10, 60, 800, 800);
+        elasticUi();
+        Fl_Button *bkb12 = new Fl_Button(20, 700, 120, 20, "Back");
+        bkb12->callback(phb, eleas);
+        eleas->end();
+        eleas->hide();    
+        // Show window
+        window->end();
+        window->show(argc, argv);
 
     // Run event loop
     return Fl::run();

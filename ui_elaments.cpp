@@ -25,6 +25,8 @@
 #include <string>
 #include <cmath>
 #include "equasions.cpp"
+#include <FL/gl.h>
+#include <SOIL/SOIL.h>
 
 
 
@@ -93,6 +95,14 @@ void aai(Fl_Widget* widget, void* data){
     ohl->hide();
     Ai->show();
 }
+void phiiy(Fl_Widget* widget, void* data){
+    home->hide();
+    phy->show();
+}
+void eelas(Fl_Widget* widget, void* data){
+    phy->hide();
+    eleas->show();
+}
 
 void homepage() {     
     Fl_Button *button1 = new Fl_Button(20, 40, 120, 80, "Gas Math");
@@ -100,7 +110,7 @@ void homepage() {
     Fl_Button *button3 = new Fl_Button(260, 40, 120, 80, "Physics");
     button1->callback(gass);
     button2->callback(elecc);
-    //button2->callback(phy);
+    button3->callback(phiiy);
      }
 void spark(){
     Fl_Button *button4 = new Fl_Button(20, 40, 120, 80, "Ohms Law");
@@ -136,4 +146,10 @@ void ges(){
     button7->callback(iddl);
     button8->callback(diff);
     button9->callback(iissffrr);
+}
+void phiy() {
+    Fl_Button *button10 = new Fl_Button(20, 40, 120, 80, "Elastic\nColision");
+    Fl_Button *bkb = new Fl_Button(20, 700, 120, 20, "Back");
+    bkb->callback(back, phy);
+    button10->callback(eelas);
 }

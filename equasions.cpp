@@ -34,6 +34,8 @@
 #include "backbuttons.cpp"
 
 
+
+
 void ab(Fl_Widget* widget, void* data) {
   double P1 = std::atof(Pv1->value());
   double P2 = std::atof(Pv2->value());
@@ -72,9 +74,9 @@ void boylawfunc() {
         P2aR = new Fl_Output(300, 150, 80, 50, "Pressure two:");
         V1aR = new Fl_Output(300, 200, 80, 50, "Volume one:");
         V2aR = new Fl_Output(300, 250, 80, 50, "Volume two:");
-       
+       //show_image("boyle_s_law.png");
         Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
-          b1->callback(ab);
+        b1->callback(ab);
 }
 void idglf(Fl_Widget* widget, void* data) {
     double P1 = std::atof(idgP1->value());
