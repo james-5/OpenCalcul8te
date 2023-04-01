@@ -26,7 +26,7 @@
 #include <cmath>
 #include "equasions.cpp"
 #include <FL/gl.h>
-#include <SOIL/SOIL.h>
+
 
 
 
