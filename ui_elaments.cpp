@@ -34,7 +34,6 @@
 
 
 
-
 void homee(Fl_Widget* widget, void* data) {
     // Hide widgets in gas
     home->show();
@@ -103,6 +102,30 @@ void eelas(Fl_Widget* widget, void* data){
     phy->hide();
     eleas->show();
 }
+void asstron(Fl_Widget* widget, void* data){
+    phy->hide();
+    astron->show();
+}
+void uunig(Fl_Widget* widget, void* data){
+    phy->hide();
+    unig->show();
+}
+void mmxe(Fl_Widget* widget, void* data){
+    phy->hide();
+    mxe->show();
+}
+void pparallax(Fl_Widget* widget, void* data){
+    phy->hide();
+    Parallax->show();
+}
+void uunig(Fl_Widget* widget, void* data){
+    phy->hide();
+    unig->show();
+}
+void uunig(Fl_Widget* widget, void* data){
+    phy->hide();
+    unig->show();
+}
 
 void homepage() {     
     Fl_Button *button1 = new Fl_Button(20, 40, 120, 80, "Gas Math");
@@ -115,7 +138,7 @@ void homepage() {
 void spark(){
     Fl_Button *button4 = new Fl_Button(20, 40, 120, 80, "Ohms Law");
     Fl_Button *button5 = new Fl_Button(140, 40, 120, 80, "Reactance");
-    Fl_Button *button9 = new Fl_Button(260, 40, 120, 80, "Magnetic Feild");
+    Fl_Button *button9 = new Fl_Button(260, 40, 120, 80, "Magnetic\nFeild");
     Fl_Button *bkb = new Fl_Button(20, 700, 120, 20, "Back");
     bkb->callback(back, elec);
     button4->callback(oohm);  
@@ -123,10 +146,10 @@ void spark(){
     button9->callback(mmf); 
     }
 void ohm() {
-    Fl_Button *button10 =new Fl_Button( 20, 40, 120, 80, " Watts(P)");
-    Fl_Button *button11 =new Fl_Button( 140, 40, 120, 80, " Volts(E)");
-    Fl_Button *button12 =new Fl_Button( 260, 40, 120, 80, " Resistance(R)");
-    Fl_Button *button13 =new Fl_Button( 380, 40, 120, 80, " Amp(I)");
+    Fl_Button *button10 =new Fl_Button( 20, 40, 120, 80, " Watts\n(P)");
+    Fl_Button *button11 =new Fl_Button( 140, 40, 120, 80, " Volts\n(E)");
+    Fl_Button *button12 =new Fl_Button( 260, 40, 120, 80, " Resistance\n(R)");
+    Fl_Button *button13 =new Fl_Button( 380, 40, 120, 80, " Amp\n(I)");
     Fl_Button *bkb = new Fl_Button(20, 700, 120, 20, "Back");
     bkb->callback(eb, ohl);
     button10->callback(wwp);
@@ -136,8 +159,8 @@ void ohm() {
   
 }
 void ges(){
-    Fl_Button *button6 = new Fl_Button(20, 40, 120, 80, "Boyels law");
-    Fl_Button *button7 = new Fl_Button(140, 40, 120, 80, "Ideal Gas Law");
+    Fl_Button *button6 = new Fl_Button(20, 40, 120, 80, "Boyels\nlaw");
+    Fl_Button *button7 = new Fl_Button(140, 40, 120, 80, "Ideal\nGas\nLaw");
     Fl_Button *button8 = new Fl_Button(260, 40, 120, 80, "Diferential");
     Fl_Button *button9 = new Fl_Button(380, 40, 120, 80, "Isentropic\nFlow\nRelation");
     Fl_Button *bkb = new Fl_Button(20, 700, 120, 20, "Back");
@@ -152,4 +175,13 @@ void phiy() {
     Fl_Button *bkb = new Fl_Button(20, 700, 120, 20, "Back");
     bkb->callback(back, phy);
     button10->callback(eelas);
+}
+void aastrom() {
+    Fl_Button *button13 = new Fl_Button(20, 40, 120, 80, "Universal\nGravitation");
+    Fl_Button *button14 = new Fl_Button(20, 40, 120, 80, "Maxwell's\nequations ");
+    Fl_Button *button14 = new Fl_Button(20, 40, 120, 80, " ");
+    Fl_Button *bkb = new Fl_Button(20, 700, 120, 20, "Back");
+    bkb->callback(back, astron);
+    button13->callback(eelas);
+    button14->callback();
 }

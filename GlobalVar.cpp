@@ -38,14 +38,18 @@ Fl_Group* eleas;
 Fl_Group* df;
 Fl_Group* bl;
 Fl_Group* idl;
-Fl_Group*ohl;
-Fl_Group*reac;
-Fl_Group*mf;
-Fl_Group*Wp;
-Fl_Group*Ve;
-Fl_Group*Rr;
-Fl_Group*Ai;
-Fl_Group*IsFr;
+Fl_Group* ohl;
+Fl_Group* reac;
+Fl_Group* mf;
+Fl_Group* Wp;
+Fl_Group* Ve;
+Fl_Group* Rr;
+Fl_Group* Ai;
+Fl_Group* IsFr;
+Fl_Group* astron;
+Fl_Group* unig;
+Fl_Group* mxe;
+Fl_Group* Parallax;
 
 
 //Boyels law
