@@ -26,7 +26,7 @@
 #include <cmath>
 #include "equasions.cpp"
 #include <FL/gl.h>
-
+#include <SOIL/SOIL.h>
 
 
 
@@ -103,6 +103,31 @@ void eelas(Fl_Widget* widget, void* data){
     phy->hide();
     eleas->show();
 }
+void asstron(Fl_Widget* widget, void* data){
+    phy->hide();
+    astron->show();
+}
+void uunig(Fl_Widget* widget, void* data){
+    astron->hide();
+    unig->show();
+}
+void ddopler(Fl_Widget* widget, void* data){
+    phy->hide();
+    dopler->show();
+}
+void pparallax(Fl_Widget* widget, void* data){
+    astron->hide();
+    Parallax->show();
+}
+void rrljw(Fl_Widget* widget, void* data){
+    astron->hide();
+    rljw->show();
+}
+void hhublaw(Fl_Widget* widget, void* data){
+    astron->hide();
+    Hublaw->show();
+}
+
 
 void homepage() {     
     Fl_Button *button1 = new Fl_Button(20, 40, 120, 80, "Gas Math");
@@ -149,7 +174,23 @@ void ges(){
 }
 void phiy() {
     Fl_Button *button10 = new Fl_Button(20, 40, 120, 80, "Elastic\nColision");
+    Fl_Button *button1 = new Fl_Button(140, 40, 120, 80,"Dopler Effect" );
+    Fl_Button *button11 = new Fl_Button(260, 40, 120, 80,"Astonomy" );
     Fl_Button *bkb = new Fl_Button(20, 700, 120, 20, "Back");
     bkb->callback(back, phy);
     button10->callback(eelas);
+    button1->callback(ddopler);
+    button11->callback(asstron);
+}
+void aastron() {
+    Fl_Button *button = new Fl_Button(20, 40, 120, 80, "Universal\nGravitation");
+    Fl_Button *button1 = new Fl_Button(140, 40, 120, 80, "Parallax");
+    //Fl_Button *button2 = new Fl_Button(260, 40, 120, 80, "");
+    //Fl_Button *button3 = new Fl_Button(380, 40, 120, 80, ""); 
+    Fl_Button *bkb = new Fl_Button(20, 700, 120, 20, "Back");
+    bkb->callback(phb, astron);
+    button->callback(uunig);
+    button1->callback(pparallax);
+   // button2->callback(rrljw);
+   // button3->callback(hhublaw);   
 }
