@@ -28,6 +28,7 @@
 #include <iostream>
 #include <math.h>
 #include <sstream>
+#include <iomanip>
 #include <string>
 #include <cmath>
 #include "GlobalVar.cpp"
@@ -256,14 +257,6 @@ void reacmath(Fl_Widget* widget, void* data) {
   ab << Oh;
   ohms->value(ab.str().c_str());
 }
-void Reactanceui() {
-  frec = new Fl_Input(120, 100, 80, 50, "Frequency (Hz)");
-  Lh = new Fl_Input(120, 150, 80, 50, "Length in Henry");
-
-  ohms = new Fl_Output(350, 100, 80, 50, "ohms");
-  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
-  b1->callback(reacmath);
-}
 void VolumeDiffmath(Fl_Widget* widget, void* data) {
   double cd = std::atof(Cd_input->value());
   double Ai = std::atof(A_input->value());
@@ -310,6 +303,41 @@ void IsentropicFlowMath(Fl_Widget* widget, void* data) {
     std::sprintf(density_str, "%.2f", density);
     velocity_output->value(velocity_str);
     density_output->value(density_str);
+}
+void UniGravMath(Fl_Widget* widget, void* data) {
+   float mass1 = std::atof(input_mass1->value());
+   float mass2 = std::atof(input_mass2->value());
+   float distance = std::atof(input_distance->value());
+   float gravitational_force = 6.674 * std::pow(10, -11) * mass1 * mass2 / std::pow(distance, 2);
+   std::ostringstream output_text;
+   output_text << std::scientific << std::setprecision(2) << gravitational_force;
+   std::string output_string = output_text.str();
+   if (gravitational_force < 0) {
+    output_string = "-" + output_string.substr(1);  // add negative sign before exponent
+  }
+    output_result->value(output_string.c_str());
+}
+void ParallaxMath(Fl_Widget* widget, void* data){
+  double d = atof(input_Pdistance->value());
+  double a1 = atof(input_Pangle1->value());
+  double a2 = atof(input_Pangle2->value());
+  
+  double a1_rad = a1 * M_PI / 180.0;
+  double a2_rad = a2 * M_PI / 180.0;
+  double p = atan((d * sin(a1_rad)) / (d - d * cos(a1_rad) * cos(a2_rad)));
+  double p_deg = p * 180.0 / M_PI;
+  Pans->value(std::to_string(p).c_str());
+  Pans_deg->value(std::to_string(p_deg).c_str());
+}
+
+void DoplerMath(Fl_Widget* widget, void* data) {
+  const double c = 343.0;
+  double f = std::atof(input_frequency->value());
+  double vs = std::atof(input_velocity_source->value());
+  double v = std::atof(input_velocity_observer->value());
+  double factor = (c + v) / (c + vs);
+  double ans= f * factor;
+  dopler_ans->value(std::to_string(ans).c_str());
 }
 void IsentropicFlowUi() {
   mach_input = new Fl_Input(140, 50, 80, 50, "Mach Number");
@@ -400,4 +428,38 @@ void ampUi() {
   Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
   b1->callback(ampmath);
   
+}
+void Reactanceui() {
+  frec = new Fl_Input(120, 100, 80, 50, "Frequency (Hz)");
+  Lh = new Fl_Input(120, 150, 80, 50, "Length in Henry");
+
+  ohms = new Fl_Output(350, 100, 80, 50, "ohms");
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(reacmath);
+}
+void UniGravUi(){
+  input_mass1 = new Fl_Input(120, 100, 80, 50, "Mass 1:");
+  input_mass2 = new Fl_Input(120, 150, 80, 50, "Mass 2:");
+  input_distance = new Fl_Input(120, 200, 80, 50, "Distance:");
+  output_result = new Fl_Output(350, 100, 80, 50, "Gravitational Force");
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(UniGravMath);
+}
+void ParallaxUi(){
+  input_Pdistance = new Fl_Input(120, 100, 80, 50, "Distance \n(parsecs):");
+  input_Pangle1 = new Fl_Input(120, 150, 80, 50, "Angle 1\n(degrees):");
+  input_Pangle2 = new Fl_Input(120, 200, 80, 50, "Angle 2\n(degrees):");
+  Pans_deg = new Fl_Output(350, 100, 80, 50, "Parallax angle\n (arcseconds):");
+  Pans = new Fl_Output(350, 150, 80, 50, "Parallax angle\n(Radians):");
+
+  Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+  b1->callback(ParallaxMath);
+}
+void DoplerUi() {
+   input_frequency = new Fl_Input(120, 100, 80, 50, "Frequency (Hz):");
+   input_velocity_source = new Fl_Input(120, 150, 80, 50, "Source\nvelocity (m/s):");
+   input_velocity_observer = new Fl_Input(120, 200, 80, 50, "Observer\nvelocity (m/s):");
+   output_result = new Fl_Output(350, 100,100,50);
+    Fl_Button *b1 = new Fl_Button(680,680,100,75,"Calculate"); b1->color(88+3);
+    b1->callback(DoplerMath);
 }
