@@ -107,6 +107,29 @@ int main(int argc, char **argv) {
         bkb12->callback(phb, eleas);
         eleas->end();
         eleas->hide();    
+    astron = new Fl_Group(10, 60, 800, 800);
+        aastron();
+        astron->end();
+        astron->hide();  
+    unig = new Fl_Group(10, 60, 800, 800);
+        UniGravUi();
+        Fl_Button *bkb14 = new Fl_Button(20, 700, 120, 20, "Back");
+        bkb14->callback(asb, unig);
+        unig->end();
+        unig->hide();    
+    Parallax = new Fl_Group(10, 60, 800, 800);
+        ParallaxUi();
+        Fl_Button *bkb15 = new Fl_Button(20, 700, 120, 20, "Back");
+        bkb15->callback(asb, Parallax);
+        Parallax->end();
+        Parallax->hide();   
+    dopler = new Fl_Group(10, 60, 800, 800);
+        DoplerUi();
+        Fl_Button *bkb16 = new Fl_Button(20, 700, 120, 20, "Back");
+        bkb16->callback(phb, dopler);
+        dopler->end();
+        dopler->hide();   
+
         // Show window
         window->end();
         window->show(argc, argv);
