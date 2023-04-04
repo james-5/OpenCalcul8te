@@ -67,3 +67,11 @@ void phb(Fl_Widget* widget, void* data) {
     current_group->hide();
     phy->show();
 }
+void asb(Fl_Widget* widget, void* data) {
+  Fl_Window* window = (Fl_Window*)widget->window();
+    // Get pointer to the current group
+    Fl_Group* current_group = (Fl_Group*)data;
+    // Hide the current group and show the parent group
+    current_group->hide();
+    astron->show();
+}
