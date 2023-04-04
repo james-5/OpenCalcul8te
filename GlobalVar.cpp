@@ -38,15 +38,20 @@ Fl_Group* eleas;
 Fl_Group* df;
 Fl_Group* bl;
 Fl_Group* idl;
-Fl_Group*ohl;
-Fl_Group*reac;
-Fl_Group*mf;
-Fl_Group*Wp;
-Fl_Group*Ve;
-Fl_Group*Rr;
-Fl_Group*Ai;
-Fl_Group*IsFr;
-
+Fl_Group* ohl;
+Fl_Group* reac;
+Fl_Group* mf;
+Fl_Group* Wp;
+Fl_Group* Ve;
+Fl_Group* Rr;
+Fl_Group* Ai;
+Fl_Group* IsFr;
+Fl_Group* astron;
+Fl_Group* unig;
+Fl_Group* dopler;
+Fl_Group* Parallax;
+Fl_Group* rljw;
+Fl_Group* Hublaw;
 
 //Boyels law
 Fl_Input* Pv1;
@@ -140,8 +145,22 @@ Fl_Input *temperature_input;
 Fl_Input *pressure_input;
 Fl_Output *velocity_output;
 Fl_Output *density_output;
-
-
+//Newton's law of universal gravitation
+Fl_Input *input_mass1; 
+Fl_Input *input_mass2;
+Fl_Input *input_distance;
+Fl_Output *output_result;
+//Parallax
+Fl_Input* input_Pdistance;
+Fl_Input* input_Pangle1;
+Fl_Input* input_Pangle2;
+Fl_Output* Pans;
+Fl_Output* Pans_deg;
+//Dopler efect
+Fl_Input *input_frequency;
+Fl_Input *input_velocity_source;
+Fl_Input *input_velocity_observer;
+Fl_Output *dopler_ans;
 
 
 
