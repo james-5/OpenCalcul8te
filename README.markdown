@@ -44,7 +44,7 @@ Despite this shift, I plan to fork the original C++ version to maintain it as a 
 ## Future Plans
 - I will fork the C++ version to a separate repository for users interested in a compiled alternative.
 - Enhance the orifice plate calculator with additional gas properties and unit conversions.
-- Add more calculation modules based on user feedback.
+- Add more calculation modules.
 
 ## License
 This project is open-source under the MIT License. See the `LICENSE` file for details.
